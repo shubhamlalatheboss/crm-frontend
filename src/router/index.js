@@ -13,8 +13,8 @@ import Settings from '../pages/Settings.vue'
 const routes = [
   {
     path: '/',
-    name: 'Dashboard',
-    component: Dashboard, // Default page (could be a landing page)
+   
+    redirect: '/dashboard', 
   },
   {
     path: '/dashboard',
