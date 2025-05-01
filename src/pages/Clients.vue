@@ -67,7 +67,7 @@ const form = ref({
 
 const fetchClients = async () => {
   try {
-    const res = await axios.get('http://localhost:8000/api/clients')
+    const res = await axios.get('https://crm-backend-production-7172.up.railway.app/api/clients')
     clients.value = res.data
   } catch (err) {
     alert('Failed to fetch clients')
@@ -82,9 +82,9 @@ const handleSubmit = async () => {
 
   try {
     if (isEditMode.value) {
-      await axios.put(`http://localhost:8000/api/clients/${editingId.value}`, form.value)
+      await axios.put(`https://crm-backend-production-7172.up.railway.app/api/clients/${editingId.value}`, form.value)
     } else {
-      await axios.post('http://localhost:8000/api/clients', form.value)
+      await axios.post('https://crm-backend-production-7172.up.railway.app/api/clients', form.value)
     }
     cancelForm()
     fetchClients()
@@ -96,7 +96,7 @@ const handleSubmit = async () => {
 const deleteClient = async (id) => {
   if (confirm('Are you sure you want to delete this client?')) {
     try {
-      await axios.delete(`http://localhost:8000/api/clients/${id}`)
+      await axios.delete(`https://crm-backend-production-7172.up.railway.app/api/clients/${id}`)
       fetchClients()
     } catch (err) {
       alert('Error while deleting client')

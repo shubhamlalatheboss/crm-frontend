@@ -95,7 +95,7 @@ const form = ref({
 
 const fetchLeads = async () => {
   try {
-    const res = await axios.get('http://localhost:8000/api/leads')
+    const res = await axios.get('https://crm-backend-production-7172.up.railway.app/api/leads')
     leads.value = res.data
     alert('Leads fetched: ' + JSON.stringify(res.data))
   } catch (err) {
@@ -113,10 +113,10 @@ const handleSubmit = async () => {
 
   try {
     if (isEditMode.value) {
-      await axios.put(`http://localhost:8000/api/leads/${editingId.value}`, form.value)
+      await axios.put(`https://crm-backend-production-7172.up.railway.app/api/leads/${editingId.value}`, form.value)
       alert('Lead updated successfully.')
     } else {
-      await axios.post('http://localhost:8000/api/leads', form.value)
+      await axios.post('https://crm-backend-production-7172.up.railway.app/api/leads', form.value)
       alert('Lead created successfully.')
     }
     cancelForm()
@@ -133,7 +133,7 @@ const deleteLead = async (id) => {
   alert('Deleting lead with ID: ' + id)
 
   try {
-    await axios.delete(`http://localhost:8000/api/leads/${id}`)
+    await axios.delete(`https://crm-backend-production-7172.up.railway.app/api/leads/${id}`)
     alert('Lead deleted successfully.')
     fetchLeads()
   } catch (error) {
